@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+<div style="display: flex; justify-content: center; align-items: center; min-height: 100vh;">
+        <img src="aakifa-akhtar.gif" alt="Aakifa Akhtar" style="width: 400px; height: 400px; image-rendering: pixelated;">
+    </div><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -12,332 +14,73 @@
         }
 
         body {
-            font-family: 'Futura', 'Trebuchet MS', Arial, sans-serif;
-            font-weight: 300;
-            line-height: 1.6;
-            color: #2c2c2c;
-            background: #ffffff;
-        }
-        
-        nav ul a {
+            background: #dde4f3;
+            min-height: 100vh;
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
         }
 
-        /* Navigation */
-        nav {
-            background: #ffffff;
-            padding: 1.5rem 3rem;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
+        /* Header */
+        header {
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
             align-items: center;
+            padding: 4rem 2rem 2rem;
         }
 
-        .nav-name {
-            font-size: 1.4rem;
-            font-weight: 400;
-            color: #2c2c2c;
-            text-decoration: none;
-        }
-
-        nav ul {
-            list-style: none;
+        .name-row {
             display: flex;
-            gap: 2.5rem;
+            align-items: center;
+            gap: 1.5rem;
         }
 
-        nav ul a {
+        .name-row h1 {
+            font-size: 2rem;
+            font-weight: 300;
             color: #2c2c2c;
+            letter-spacing: 1px;
+        }
+
+        .gif-placeholder {
+            width: 80px;
+            height: 80px;
+            background: #d0e8e3;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            color: #888;
+            image-rendering: pixelated;
+        }
+
+        .gif-placeholder img {
+            width: 80px;
+            height: 80px;
+            image-rendering: pixelated;
+        }
+
+        /* Navigation Menu */
+        nav {
+            margin-top: 2rem;
+            display: flex;
+            gap: 3rem;
+        }
+
+        nav a {
             text-decoration: none;
-            font-weight: 400;
-            font-size: 0.95rem;
-            letter-spacing: 0.5px;
+            color: #2c2c2c;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
             text-transform: uppercase;
             transition: color 0.3s;
         }
 
-        nav ul a:hover {
+        nav a:hover {
             color: #549958;
-        }
-        
-        nav ul a.active {
-            color: #549958;
-        }
-
-        /* Hero Section */
-        .hero {
-            padding: 9rem 2rem 3rem;
-            text-align: center;
-            background: #ffffff;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .hero h1 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            font-weight: 200;
-            color: #2c2c2c;
-            line-height: 1.4;
-            word-spacing: normal;
-        }
-        
-        .highlight {
-            color: #549958;
-        }
-
-        /* Projects Grid */
-        .projects-section {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-        }
-
-        .project-card {
-            position: relative;
-            overflow: hidden;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-
-        .project-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .project-card a {
-            text-decoration: none;
-            color: inherit;
-            display: block;
-        }
-
-        .project-image {
-            width: 100%;
-            height: 300px;
-            background: #f5f5f5;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #999;
-            font-size: 0.9rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .project-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .project-overlay {
-            position: static;
-            background: #ffffff;
-            padding: 1.5rem 0;
-            transform: none;
-            transition: none;
-        }
-
-        .project-card:hover .project-overlay {
-            transform: none;
-        }
-
-        .project-title {
-            font-size: 1.1rem;
-            font-weight: 300;
-            color: #2c2c2c;
-            margin: 0;
-            text-align: center;
-        }
-
-        /* Contact Section */
-        .contact-section {
-            background: #fafafa;
-            padding: 5rem 2rem;
-            text-align: center;
-            margin-top: 6rem;
-        }
-
-        .contact-section h2 {
-            font-size: 1.5rem;
-            font-weight: 200;
-            margin-bottom: 2rem;
-            color: #2c2c2c;
-        }
-
-        .contact-button {
-            display: inline-block;
-            padding: 0.8rem 2.5rem;
-            background: #2c2c2c;
-            color: #ffffff;
-            text-decoration: none;
-            font-size: 0.9rem;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-            transition: background 0.3s;
-        }
-
-        .contact-button:hover {
-            background: #444;
-        }
-
-        /* Footer */
-        footer {
-            background: #ffffff;
-            padding: 2rem;
-            text-align: center;
-            font-size: 0.85rem;
-            color: #666;
-            border-top: 1px solid #f0f0f0;
-        }
-
-        footer a {
-            color: #2c2c2c;
-            text-decoration: none;
-        }
-
-        footer p {
-            margin: 0.3rem 0;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .projects-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-
-            .hero {
-                padding: 10rem 2rem 4rem;
-            }
-
-            .hero h1 {
-                font-size: 1.8rem;
-            }
-
-            .nav-container {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            nav ul {
-                gap: 1.5rem;
-            }
-
-            .project-image {
-                height: 250px;
-            }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav>
-        <div class="nav-container">
-            <a href="index.html" class="nav-name">Aakifa Akhtar</a>
-            <ul>
-                <li><a href="index.html" class="active">Portfolio</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <h1>I'm a <span class="highlight">Mechatronics Engineering</span> student with an interest in <span class="highlight">production</span> and <span class="highlight">design</span>.</h1>
-    </section>
-
-    <!-- Projects Section -->
-    <section class="projects-section">
-        <div class="projects-grid">
-            <div class="project-card">
-                <a href="graphic-design.html">
-                    <div class="project-image">
-                        Project Image
-                    </div>
-                    <div class="project-overlay">
-                        <h3 class="project-title">Computer-Aided Design</h3>
-                    </div>
-                </a>
-            </div>
-
-            <div class="project-card">
-                <a href="photography.html">
-                    <div class="project-image">
-                        Project Image
-                    </div>
-                    <div class="project-overlay">
-                        <h3 class="project-title">Robotics</h3>
-                    </div>
-                </a>
-            </div>
-
-            <div class="project-card">
-                <a href="animation.html">
-                    <div class="project-image">
-                        Project Image
-                    </div>
-                    <div class="project-overlay">
-                        <h3 class="project-title">Academic Research</h3>
-                    </div>
-                </a>
-            </div>
-
-            <div class="project-card">
-                <a href="video-production.html">
-                    <div class="project-image">
-                        Project Image
-                    </div>
-                    <div class="project-overlay">
-                        <h3 class="project-title">Graphic Design & Motion Graphics</h3>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="contact-section">
-        <h2>Let's work together</h2>
-        <a href="contact.html" class="contact-button">Contact</a>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <p><a href="mailto:your.email@example.com">your.email@example.com</a></p>
-        <p>Your Phone Number</p>
-        <p>© 2026</p>
-    </footer>
-
-    <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-    </script>
 </body>
 </html>
