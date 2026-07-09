@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal</title>
+    <style>
+        @font-face {
+            font-family: 'Ordin';
+            src: url('Ordin.otf') format('opentype');
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #dde4f3;
+            min-height: 100vh;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            padding: 1.5rem 0;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #000000;
+            font-family: 'Ordin', sans-serif;
+            font-size: 16px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #5b72bb;
+        }
+
+        nav a.active {
+            color: #5b72bb;
+        }
+
+        .content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            gap: 3rem;
+        }
+
+        .coming-soon {
+            display: flex;
+            flex-direction: column;
+            font-family: 'Ordin', sans-serif;
+            font-size: 3rem;
+            color: #000000;
+            line-height: 1.2;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html" class="active">> About Me</a>
+        <a href="projects.html">> Projects</a>
+        <a href="personal.html">> Personal</a>
+    </nav>
+
+    <div class="content">
+        <img src="pickaxe.gif" alt="Pickaxe" style="image-rendering: pixelated; width: 400px; height: auto;">
+        <div class="coming-soon">
+            <span>COMING</span>
+            <span>SOON</span>
+        </div>
+    </div>
+</body>
+</html>
