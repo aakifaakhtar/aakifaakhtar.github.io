@@ -10,62 +10,151 @@
             src: url('Ordin.otf') format('opentype');
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             background: #dde4f3;
             min-height: 100vh;
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-family: 'Ordin', monospace;
         }
 
         nav {
             display: flex;
             justify-content: center;
-            gap: 3rem;
-            padding: 1.5rem 0;
+            gap: 2rem;
+            padding: 1.2rem 0;
         }
 
         nav a {
             text-decoration: none;
-            color: #000000;
-            font-family: 'Ordin', sans-serif;
+            color: #000;
+            font-family: 'Ordin', monospace;
             font-size: 16px;
             letter-spacing: 1px;
             text-transform: uppercase;
-            transition: color 0.3s;
+            transition: color 0.2s;
+            white-space: nowrap;
         }
 
-        nav a:hover {
-            color: #5b72bb;
+        nav a:hover { color: #5b72bb; }
+        nav a.active { color: #5b72bb; }
+
+        /* Projects Grid */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            max-width: 1100px;
+            margin: 2rem auto;
+            padding: 0 2rem 4rem;
         }
 
-        nav a.active {
-            color: #5b72bb;
-        }
-
-        .content {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: calc(100vh - 80px);
-            gap: 3rem;
-        }
-
-        .coming-soon {
+        .project-box {
+            background: #ffffff;
+            border-radius: 16px;
+            border: 2px solid #b0bce0;
+            aspect-ratio: 3/4;
+            cursor: pointer;
             display: flex;
             flex-direction: column;
-            font-family: 'Ordin', sans-serif;
-            font-size: 3rem;
-            color: #000000;
-            line-height: 1.2;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 1rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-box:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(91, 114, 187, 0.2);
+            border-color: #5b72bb;
+        }
+
+        .project-label {
+            font-family: 'Ordin', monospace;
+            font-size: 14px;
+            color: #1a1a2e;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: center;
+        }
+
+        /* Modal */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 100;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal {
+            background: #dde4f3;
+            border-radius: 16px;
+            border: 3px solid #1a1a2e;
+            width: 90%;
+            max-width: 600px;
+            max-height: 80vh;
+            overflow-y: auto;
+            padding: 2rem;
+            position: relative;
+            box-shadow: 6px 6px 0px #8a9bc4;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem; right: 1rem;
+            background: none;
+            border: 2px solid #1a1a2e;
+            border-radius: 8px;
+            font-family: 'Ordin', monospace;
+            font-size: 14px;
+            cursor: pointer;
+            padding: 0.3rem 0.8rem;
+            color: #1a1a2e;
+        }
+
+        .modal-close:hover { background: #5b72bb; color: white; border-color: #5b72bb; }
+
+        .modal h2 {
+            font-family: 'Ordin', monospace;
+            font-size: 1.3rem;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            color: #1a1a2e;
+        }
+
+        .modal p {
+            color: #333;
+            line-height: 1.7;
+            font-family: 'Helvetica Neue', sans-serif;
+            font-size: 0.95rem;
+        }
+
+        .modal-image {
+            width: 100%;
+            height: 200px;
+            background: #c8d4f0;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #5b72bb;
+            font-size: 0.9rem;
         }
     </style>
 </head>
 <body>
+
     <nav>
         <a href="index.html">> Home</a>
         <a href="about.html">> About Me</a>
@@ -73,12 +162,89 @@
         <a href="personal.html">> Personal</a>
     </nav>
 
-    <div class="content">
-        <img src="pickaxe.gif" alt="Pickaxe" style="image-rendering: pixelated; width: 200px; height: auto;">
-        <div class="coming-soon">
-            <span>COMING</span>
-            <span>SOON</span>
+    <div class="grid">
+        <div class="project-box" onclick="openModal('modal1')">
+            <span class="project-label">Project 1</span>
+        </div>
+        <div class="project-box" onclick="openModal('modal2')">
+            <span class="project-label">Project 2</span>
+        </div>
+        <div class="project-box" onclick="openModal('modal3')">
+            <span class="project-label">Project 3</span>
+        </div>
+        <div class="project-box" onclick="openModal('modal4')">
+            <span class="project-label">Project 4</span>
+        </div>
+        <div class="project-box" onclick="openModal('modal5')">
+            <span class="project-label">Project 5</span>
+        </div>
+        <div class="project-box" onclick="openModal('modal6')">
+            <span class="project-label">Project 6</span>
         </div>
     </div>
+
+    <!-- Modals -->
+    <div class="modal-overlay" id="modal1" onclick="closeModal(event, 'modal1')">
+        <div class="modal">
+            <button class="modal-close" onclick="closeModalBtn('modal1')">✕ Close</button>
+            <div class="modal-image">Project Image</div>
+            <h2>Project 1</h2>
+            <p>Add your project description here. Talk about what you made, what tools you used, and what you learned!</p>
+        </div>
+    </div>
+    <div class="modal-overlay" id="modal2" onclick="closeModal(event, 'modal2')">
+        <div class="modal">
+            <button class="modal-close" onclick="closeModalBtn('modal2')">✕ Close</button>
+            <div class="modal-image">Project Image</div>
+            <h2>Project 2</h2>
+            <p>Add your project description here.</p>
+        </div>
+    </div>
+    <div class="modal-overlay" id="modal3" onclick="closeModal(event, 'modal3')">
+        <div class="modal">
+            <button class="modal-close" onclick="closeModalBtn('modal3')">✕ Close</button>
+            <div class="modal-image">Project Image</div>
+            <h2>Project 3</h2>
+            <p>Add your project description here.</p>
+        </div>
+    </div>
+    <div class="modal-overlay" id="modal4" onclick="closeModal(event, 'modal4')">
+        <div class="modal">
+            <button class="modal-close" onclick="closeModalBtn('modal4')">✕ Close</button>
+            <div class="modal-image">Project Image</div>
+            <h2>Project 4</h2>
+            <p>Add your project description here.</p>
+        </div>
+    </div>
+    <div class="modal-overlay" id="modal5" onclick="closeModal(event, 'modal5')">
+        <div class="modal">
+            <button class="modal-close" onclick="closeModalBtn('modal5')">✕ Close</button>
+            <div class="modal-image">Project Image</div>
+            <h2>Project 5</h2>
+            <p>Add your project description here.</p>
+        </div>
+    </div>
+    <div class="modal-overlay" id="modal6" onclick="closeModal(event, 'modal6')">
+        <div class="modal">
+            <button class="modal-close" onclick="closeModalBtn('modal6')">✕ Close</button>
+            <div class="modal-image">Project Image</div>
+            <h2>Project 6</h2>
+            <p>Add your project description here.</p>
+        </div>
+    </div>
+
+    <script>
+        function openModal(id) {
+            document.getElementById(id).classList.add('active');
+        }
+        function closeModal(e, id) {
+            if (e.target === document.getElementById(id)) {
+                document.getElementById(id).classList.remove('active');
+            }
+        }
+        function closeModalBtn(id) {
+            document.getElementById(id).classList.remove('active');
+        }
+    </script>
 </body>
 </html>
