@@ -24,9 +24,9 @@
 
         /* Header row with gifs and name */
         .header {
-            display: flex;
-            align-items: flex-end;
-            justify-content: center;
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
             padding-top: 9px;
             width: 100%;
         }
@@ -35,10 +35,8 @@
             width: 300px;
             height: auto;
             image-rendering: pixelated;
+            justify-self: center;
         }
-
-        .header img.side.left { margin-top: 18px; }
-        .header img.side.right { margin-top: 39px; }
 
         .header img.name {
             width: 800px;
