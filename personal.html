@@ -10,57 +10,56 @@
             src: url('Ordin.otf') format('opentype');
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             background: #dde4f3;
             min-height: 100vh;
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-family: 'Ordin', monospace;
         }
 
         nav {
             display: flex;
             justify-content: center;
-            gap: 3rem;
-            padding: 1.5rem 0;
+            gap: clamp(1rem, 3vw, 3rem);
+            padding: 1.2rem 1rem;
+            flex-wrap: wrap;
         }
 
         nav a {
             text-decoration: none;
-            color: #000000;
-            font-family: 'Ordin', sans-serif;
-            font-size: 16px;
+            color: #000;
+            font-family: 'Ordin', monospace;
+            font-size: clamp(12px, 1.5vw, 16px);
             letter-spacing: 1px;
             text-transform: uppercase;
-            transition: color 0.3s;
+            transition: color 0.2s;
+            white-space: nowrap;
         }
 
-        nav a:hover {
-            color: #5b72bb;
-        }
-
-        nav a.active {
-            color: #5b72bb;
-        }
+        nav a:hover { color: #5b72bb; }
+        nav a.active { color: #5b72bb; }
 
         .content {
             display: flex;
             justify-content: center;
             align-items: center;
-            height: calc(100vh - 80px);
-            gap: 3rem;
+            height: calc(100vh - 60px);
+            gap: 5vw;
+        }
+
+        .content img {
+            width: clamp(100px, 20vw, 400px);
+            height: auto;
+            image-rendering: pixelated;
         }
 
         .coming-soon {
             display: flex;
             flex-direction: column;
-            font-family: 'Ordin', sans-serif;
-            font-size: 3rem;
-            color: #000000;
+            font-family: 'Ordin', monospace;
+            font-size: clamp(1.5rem, 4vw, 3rem);
+            color: #000;
             line-height: 1.2;
         }
     </style>
@@ -74,7 +73,7 @@
     </nav>
 
     <div class="content">
-        <img src="pickaxe.gif" alt="Pickaxe" style="image-rendering: pixelated; width: 200px; height: auto;">
+        <img src="pickaxe.gif" alt="Pickaxe">
         <div class="coming-soon">
             <span>COMING</span>
             <span>SOON</span>
