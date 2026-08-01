@@ -21,15 +21,16 @@
         nav {
             display: flex;
             justify-content: center;
-            gap: 2rem;
-            padding: 1.2rem 0;
+            gap: clamp(1rem, 3vw, 3rem);
+            padding: 1.2rem 1rem;
+            flex-wrap: wrap;
         }
 
         nav a {
             text-decoration: none;
             color: #000;
             font-family: 'Ordin', monospace;
-            font-size: 16px;
+            font-size: clamp(12px, 1.5vw, 16px);
             letter-spacing: 1px;
             text-transform: uppercase;
             transition: color 0.2s;
@@ -39,21 +40,19 @@
         nav a:hover { color: #5b72bb; }
         nav a.active { color: #5b72bb; }
 
-        /* Projects Grid */
         .grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-            max-width: 1100px;
-            margin: 2rem auto;
-            padding: 0 2rem 4rem;
+            gap: 1vw;
+            width: 100%;
+            padding: 1vw;
+            height: calc(100vh - 60px);
         }
 
         .project-box {
             background: #ffffff;
             border-radius: 16px;
             border: 2px solid #b0bce0;
-            aspect-ratio: 3/4;
             cursor: pointer;
             display: flex;
             flex-direction: column;
@@ -61,7 +60,6 @@
             justify-content: flex-end;
             padding: 1rem;
             transition: transform 0.2s, box-shadow 0.2s;
-            position: relative;
             overflow: hidden;
         }
 
@@ -73,14 +71,13 @@
 
         .project-label {
             font-family: 'Ordin', monospace;
-            font-size: 14px;
+            font-size: clamp(10px, 1.2vw, 16px);
             color: #1a1a2e;
             text-transform: uppercase;
             letter-spacing: 1px;
             text-align: center;
         }
 
-        /* Modal */
         .modal-overlay {
             display: none;
             position: fixed;
@@ -92,9 +89,7 @@
             justify-content: center;
         }
 
-        .modal-overlay.active {
-            display: flex;
-        }
+        .modal-overlay.active { display: flex; }
 
         .modal {
             background: #dde4f3;
@@ -126,7 +121,7 @@
 
         .modal h2 {
             font-family: 'Ordin', monospace;
-            font-size: 1.3rem;
+            font-size: clamp(1rem, 2vw, 1.3rem);
             text-transform: uppercase;
             margin-bottom: 1rem;
             color: #1a1a2e;
@@ -136,7 +131,7 @@
             color: #333;
             line-height: 1.7;
             font-family: 'Helvetica Neue', sans-serif;
-            font-size: 0.95rem;
+            font-size: clamp(0.8rem, 1.2vw, 0.95rem);
         }
 
         .modal-image {
@@ -154,7 +149,6 @@
     </style>
 </head>
 <body>
-
     <nav>
         <a href="index.html">> Home</a>
         <a href="about.html">> About Me</a>
@@ -163,40 +157,27 @@
     </nav>
 
     <div class="grid">
-        <div class="project-box" onclick="openModal('modal1')">
-            <span class="project-label">Autonomous Vehicle AI Deraining Tool (Present)</span>
-        </div>
-        <div class="project-box" onclick="openModal('modal2')">
-            <span class="project-label">Electro-Mechanical Assembly (2025)</span>
-        </div>
-        <div class="project-box" onclick="openModal('modal3')">
-            <span class="project-label">Facial Motion Analysis and Retargeting Model for 3D Characters (2025)</span>
-        </div>
-        <div class="project-box" onclick="openModal('modal4')">
-            <span class="project-label">Project 4</span>
-        </div>
-        <div class="project-box" onclick="openModal('modal5')">
-            <span class="project-label">UWAFT CAD Design (2023 - 2025)</span>
-        </div>
-        <div class="project-box" onclick="openModal('modal6')">
-            <span class="project-label">Project Pill-E (2022)</span>
-        </div>
+        <div class="project-box" onclick="openModal('modal1')"><span class="project-label">Project 1</span></div>
+        <div class="project-box" onclick="openModal('modal2')"><span class="project-label">Project 2</span></div>
+        <div class="project-box" onclick="openModal('modal3')"><span class="project-label">Project 3</span></div>
+        <div class="project-box" onclick="openModal('modal4')"><span class="project-label">Project 4</span></div>
+        <div class="project-box" onclick="openModal('modal5')"><span class="project-label">Project 5</span></div>
+        <div class="project-box" onclick="openModal('modal6')"><span class="project-label">Project 6</span></div>
     </div>
 
-    <!-- Modals -->
     <div class="modal-overlay" id="modal1" onclick="closeModal(event, 'modal1')">
         <div class="modal">
             <button class="modal-close" onclick="closeModalBtn('modal1')">✕ Close</button>
             <div class="modal-image">Project Image</div>
-            <h2>Autonomous Vehicle AI Deraining Tool</h2>
-            <p>Add your project description here. Talk about what you made, what tools you used, and what you learned!</p>
+            <h2>Project 1</h2>
+            <p>Add your project description here.</p>
         </div>
     </div>
     <div class="modal-overlay" id="modal2" onclick="closeModal(event, 'modal2')">
         <div class="modal">
             <button class="modal-close" onclick="closeModalBtn('modal2')">✕ Close</button>
             <div class="modal-image">Project Image</div>
-            <h2>Electro-Mechanical Assembly</h2>
+            <h2>Project 2</h2>
             <p>Add your project description here.</p>
         </div>
     </div>
@@ -204,7 +185,7 @@
         <div class="modal">
             <button class="modal-close" onclick="closeModalBtn('modal3')">✕ Close</button>
             <div class="modal-image">Project Image</div>
-            <h2>Facial Motion Analysis and Retargeting Model for 3D Characters</h2>
+            <h2>Project 3</h2>
             <p>Add your project description here.</p>
         </div>
     </div>
@@ -220,7 +201,7 @@
         <div class="modal">
             <button class="modal-close" onclick="closeModalBtn('modal5')">✕ Close</button>
             <div class="modal-image">Project Image</div>
-            <h2>UWAFT CAD Design</h2>
+            <h2>Project 5</h2>
             <p>Add your project description here.</p>
         </div>
     </div>
@@ -228,23 +209,15 @@
         <div class="modal">
             <button class="modal-close" onclick="closeModalBtn('modal6')">✕ Close</button>
             <div class="modal-image">Project Image</div>
-            <h2>Project Pill-E</h2>
+            <h2>Project 6</h2>
             <p>Add your project description here.</p>
         </div>
     </div>
 
     <script>
-        function openModal(id) {
-            document.getElementById(id).classList.add('active');
-        }
-        function closeModal(e, id) {
-            if (e.target === document.getElementById(id)) {
-                document.getElementById(id).classList.remove('active');
-            }
-        }
-        function closeModalBtn(id) {
-            document.getElementById(id).classList.remove('active');
-        }
+        function openModal(id) { document.getElementById(id).classList.add('active'); }
+        function closeModal(e, id) { if (e.target === document.getElementById(id)) document.getElementById(id).classList.remove('active'); }
+        function closeModalBtn(id) { document.getElementById(id).classList.remove('active'); }
     </script>
 </body>
 </html>
