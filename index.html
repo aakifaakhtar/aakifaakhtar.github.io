@@ -12,14 +12,30 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: url('starbackground.png') center center / cover no-repeat;
+            opacity: 0.5;
+            z-index: 0;
+            pointer-events: none;
+        }
+
         body {
-            background: #dde4f3 url('starbackground.png') center center / cover no-repeat;
+            background: #dde4f3;
             min-height: 100vh;
             font-family: 'Ordin', monospace;
             display: flex;
             flex-direction: column;
             align-items: center;
             overflow-x: hidden;
+        }
+
+        .header, .menu {
+            position: relative;
+            z-index: 1;
         }
 
         .header {
